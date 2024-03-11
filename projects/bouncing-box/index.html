@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(167, 134, 189);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -66,19 +66,27 @@
             var positionX = 0;
 			var points = 0;
 		    var speed = 10;
+			var positonY;
+			var speedY;
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/ 
-			function update() {
-			/* we want to increase the value of positionX by 10*/
-			positionX = positionX + speed;
-			moveBoxTo(positionX);	
-			
-            
-			};
 
+			function update() {
+			positionX = positionX + speed;
+			moveBoxTo(positionX);
+
+			if ( positionX > boardWidth) {
+				speed *= -1;
+			}
+
+			if (positionX < 0) {
+				speed = speed * -1;
+			}
+			};
+           
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
@@ -86,11 +94,18 @@
 			*/
 			function handleBoxClick() {
 			positionX = 0;
-    
-            points = points + 1
+            points = points + 1;
 			changeBoxText(points);
-			
-		
+			speed = speed + 3;
+
+			if (speed > 0){
+				speed = speed + 3;
+			}
+
+          else {
+			speed = speed - 3;
+		  }
+
 		};
 		})();
 	</script>
