@@ -76,8 +76,9 @@
 			var positionY = 0;
 			var speedY = 10;
 			var boardHeight = jQuery(window).height();
-			var randNumX = Math.random() * boardWidth;
-			var randNumY = Math.random() * boardHeight;
+			var randNumX = Math.random() * 100
+
+			
 	
 		
 			
@@ -126,6 +127,7 @@
 			var randNumY = Math.random() * boardWidth;
 			positionX = randNum;
 			positionY = randNumY;
+			speedY = speedY + 3
 
 			if (speed > 0){
 				speed = speed + 3;
@@ -133,7 +135,7 @@
 
           else {
 			speed = speed - 3;
-		  }
+		  } 
 
 
 		  if (speedY)
